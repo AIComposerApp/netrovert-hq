@@ -1,0 +1,203 @@
+@import "tailwindcss";
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-infinite {
+  animation: marquee 12s linear infinite;
+  width: max-content;
+}
+
+/* Load the specific font used in the site */
+@font-face {
+  font-family: 'Serrif Compressed';
+  src: url('https://cdn.prod.website-files.com/695bbe67dd85c45dd853386a/695cd42f1222734e39de77f4_SerrifCompressed-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+:root {
+  --text-white: #f2f0e6;
+  --overlay-black: rgba(0, 0, 0, 0.45); /* Adjusted for exact match */
+}
+
+.hero_home_inner {
+  display: flex;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.hero_home_visual_wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%; /* Taller for parallax effect */
+  z-index: 1;
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+}
+
+.text-gradient-fade {
+  -webkit-mask-image: linear-gradient(to right, black 50%, transparent 100%);
+  mask-image: linear-gradient(to right, black 50%, transparent 100%);
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero_home_overlay {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-black);
+}
+
+.hero_home_contain {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  md:flex-row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 150px 0 80px 0;
+}
+
+/* Stats section classes */
+.logo-wall_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  background-color: #f2f0e6;
+  position: relative;
+  z-index: 10;
+}
+
+.u-section-spacer {
+  height: 71px;
+}
+
+.logo-wall_contain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.logo-wall_list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+.logo-wall_item {
+  position: relative;
+  width: 15%;
+  flex: 0 0 auto;
+}
+
+.logo-wall_logo {
+  display: flex;
+  background-color: #eae7db;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.logo-wall_before {
+  padding-top: 100%;
+}
+
+.logo-wall_target {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10%;
+}
+
+.logo-wall_item:nth-child(even) {
+  margin-top: 50px;
+}
+
+.hero_home_text {
+  font-family: 'Serrif Compressed', serif;
+  font-weight: 700;
+  line-height: 0.95;
+  color: var(--text-white);
+  letter-spacing: -0.02em; /* This creates that tight, modern look */
+  margin: 0;
+}
+
+/* Precise spacers from the original site */
+.u-section-spacer.top { height: 42px; }
+.u-section-spacer.bottom { height: 92px; }
+
+.nav_bar_inner {
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  background-color: rgba(255, 255, 255, 0.1); 
+  border-radius: 999px; 
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    inset 3px 4.5px 1.5px -3px rgba(179, 179, 179, 0.5),
+    inset -3px -4.5px 1.5px -3px rgba(179, 179, 179, 0.3),
+    inset 0px 0px 33px 0px rgba(242, 242, 242, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: width 0.6s cubic-bezier(0.65, 0, 0, 1), 
+              background-color 0.4s ease, 
+              border-color 0.4s ease;
+}
+
+.nav_logo_wrap {
+  transform: scale(1);
+  opacity: 1;
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0, 1) 0.05s, opacity 0.4s ease;
+  transform-origin: center left;
+}
+
+.nav_bar.is-open .nav_logo_wrap {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.nav_menu_label { 
+  color: currentColor; 
+  transition: color 0.4s ease;
+}
+
+.nav_hamburger_bar { 
+  background-color: currentColor; 
+  transition: background-color 0.4s ease, transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+
+
+.button_main_wrap {
+  background-color: #ff4d00;
+  border-radius: 100px;
+  color: white;
+  backdrop-filter: none; 
+}
+
